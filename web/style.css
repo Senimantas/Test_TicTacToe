@@ -1,0 +1,69 @@
+/* 
+    Document   : style
+    Created on : Aug 28, 2013, 11:00:14 AM
+    Author     : pomobc
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+    font-family: Verdana,Helvetica,Sans-Serif;
+    font-size: 0.71em;
+    width: 987px;
+    margin: auto;
+    margin-top: 10px;
+    line-height: 1.3em;
+    
+}
+
+header {
+    background-color: #e5e6f0 ;
+    height: 116px;
+    position: relative;
+    padding: 10px 16px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#board {
+    width: 218px;
+    height: 218px;
+    z-index: 99;
+    bottom: 3px;
+    left: 14px;
+    margin: auto;
+    background-color: #773938;
+
+}
+#tb1:hover, #tb2:hover, #tb3:hover, #tb4:hover, #tb5:hover, #tb6:hover, #tb7:hover, #tb8:hover, #tb9:hover {
+    background-color: #A96D66;
+    color: rgb(255, 255, 255) !important;
+}
+#tb1, #tb2, #tb3, #tb4, #tb5, #tb6, #tb7, #tb8, #tb9 {
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    color: rgb(255, 255, 255);
+    background-color: #E1BAAC;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: Tahoma;
+    text-decoration: none;
+    margin: 0px 0px 1px 0px;
+    border: none;
+    outline: none;
+    position: relative;
+}
+
+#center {
+    width: 987px;
+    margin: auto;
+    background-color: #e5e6f0 ;
+}
