@@ -52,14 +52,16 @@ header {
     width: 70px;
     color: rgb(255, 255, 255);
     background-color: #E1BAAC;
-    font-size: 1.2em;
+    font-size: 5.2em;
     font-weight: 700;
     font-family: Tahoma;
     text-decoration: none;
+    text-align: center;
     margin: 0px 0px 1px 0px;
     border: none;
     outline: none;
     position: relative;
+    line-height: 70px;
 }
 
 #center {

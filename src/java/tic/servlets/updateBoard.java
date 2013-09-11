@@ -41,19 +41,34 @@ public class updateBoard extends HttpServlet {
         String loc = request.getParameter("name");
         int locX = Integer.parseInt(loc.substring(0, 1));
         int locY = Integer.parseInt(loc.substring(1, 2));
+              
+        ArrayList list = new ArrayList();
         
-        GameBoard gb = GameBoard.getInstance();
-        gb.setXorO(locX, locY);           
-        gb.print();
-
+        if(GameBoard.getBoard()==null){
+            GameBoard gb = GameBoard.getInstance();
+            gb.setXorO(locX, locY);  
+            gb.print();
+            }
+        
+        else{
+             String array[][] = GameBoard.getBoard();
+             GameBoard gb = GameBoard.getInstance();
+             if(GameBoard.getBoard()[locX][locY]==null){
+                    gb.setXorO(locX, locY);
+                    if(gb.checkWinner()){
+                        
+                    }
+                    gb.print();
+                }
+        }
+        
         String[][] resp = GameBoard.getBoard();
-        List<String> list = new ArrayList<String>();
-        for (String[] array : resp) 
-        list.addAll(Arrays.asList(array));
+        for (String[] a : resp) 
+        list.addAll(Arrays.asList(a));
         System.out.println(list.toString());
-    
-        request.setAttribute("board",list);
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        
+//        request.setAttribute("board",list);
+//        request.getRequestDispatcher("/index.jsp").forward(request,response);
 
     }
 

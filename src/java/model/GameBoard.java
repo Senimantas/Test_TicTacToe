@@ -50,10 +50,36 @@ public class GameBoard {
         }
     }
     
-    public static void checkWinner(){
-
-
+    public boolean checkWinner(){
+        //check rows
+        if((board[0][0].equals(X)) && (board[0][1].equals(X)) && (board[0][2].equals(X))) return true;
+        if((board[0][0].equals(O)) && (board[0][1].equals(O)) && (board[0][2].equals(O))) return true;
         
+        if((board[1][0].equals(X)) && (board[1][1].equals(X)) && (board[1][2].equals(X))) return true;
+        if((board[1][0].equals(O)) && (board[1][1].equals(O)) && (board[1][2].equals(O))) return true;
+        
+        if((board[2][0].equals(X)) && (board[2][1].equals(X)) && (board[2][2].equals(X))) return true;
+        if((board[2][0].equals(O)) && (board[2][1].equals(O)) && (board[2][2].equals(O))) return true;
+        
+        //check columns
+        if((board[0][0].equals(X)) && (board[1][0].equals(X)) && (board[2][0].equals(X))) return true;
+        if((board[0][0].equals(O)) && (board[1][0].equals(O)) && (board[2][0].equals(O))) return true;
+        
+        if((board[0][1].equals(X)) && (board[1][1].equals(X)) && (board[2][1].equals(X))) return true;
+        if((board[0][1].equals(O)) && (board[1][1].equals(O)) && (board[2][1].equals(O))) return true;
+        
+        if((board[0][2].equals(X)) && (board[1][2].equals(X)) && (board[2][2].equals(X))) return true;
+        if((board[0][2].equals(O)) && (board[1][2].equals(O)) && (board[2][2].equals(O))) return true;
+        
+        //check diagonals
+        if((board[0][0].equals(X)) && (board[1][1].equals(X)) && (board[2][2].equals(X))) return true;
+        if((board[0][0].equals(O)) && (board[1][1].equals(O)) && (board[2][2].equals(O))) return true;
+        
+        if((board[0][2].equals(X)) && (board[1][1].equals(X)) && (board[2][0].equals(X))) return true;
+        if((board[0][2].equals(O)) && (board[1][1].equals(O)) && (board[2][0].equals(O))) return true;
+        
+        
+        return false;
     }
     
     public static GameBoard getInstance() {
