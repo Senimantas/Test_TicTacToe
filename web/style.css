@@ -63,9 +63,38 @@ header {
     position: relative;
     line-height: 70px;
 }
+#button:hover {
+    background-color: #E1BAAC;
+    color: rgb(255, 255, 255) !important;
+}
+
+#button{
+    display: inline-block;
+    height: 30px;
+    width: 170px;
+    color: rgb(255, 255, 255);
+    background-color: #A96D66;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: Tahoma;
+    text-decoration: none;
+    text-align: center;
+    margin: 0px 0px auto;
+    border: none;
+    outline: none;
+    position: relative;
+    line-height: 30px;
+}
 
 #center {
     width: 987px;
     margin: auto;
     background-color: #e5e6f0 ;
+}
+
+#bottom {
+    height: 17px;
+    background-color: #e5e6f0;
+    position: relative;
+    border-radius: 0px 0px 10px 10px;
 }

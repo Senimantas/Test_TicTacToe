@@ -16,10 +16,12 @@
         <title>Home</title>
     </head>
     <header>
-        <h3>Tic-tac-toe!</h3>
+        <div align="center">
+              <h3>Tic-tac-toe</h3>
+        </div>
     </header>
     <body>
-        <div id="center">
+        <div id="center" align="center">
             <div id="board">              
                 <a href type="button" id="tb1" size="1" maxlength="1" onclick="f1(); return false;"></a>
                 <a href type="button" id="tb2" size="1" maxlength="1" onclick="f2(); return false;"></a>
@@ -31,7 +33,15 @@
                 <a href type="button" id="tb8" size="1" maxlength="1" onclick="f8(); return false;"></a>
                 <a href type="button" id="tb9" size="1" maxlength="1" onclick="f9(); return false;"></a>
             </div>
+                <br></br>
+                <br>
+                    <a href type="text" id="winner"></a>
+                </br>
+                <br></br>
+                <br></br>
+                <a href="/Tic-tac-toe/index.jsp" type="button" id="button">Start new game</a>
         </div>
+        <div id="bottom"></div>
         <script type="text/javascript"> 
                   var check = 0;
                   var X = "X";
@@ -40,7 +50,11 @@
                      var req = new XMLHttpRequest();
                      req.open('GET', 'http://localhost:8080/Tic-tac-toe/updateBoard?name=00' , true);
                      req.send(null);
-                     
+                     <% String winner = (String) request.getAttribute("winner");
+                        if(winner!=null){%>
+                            document.getElementById("winner").innerHTML="winner"; 
+                        <%}
+                     %>
                      if(check===0){
                           document.getElementById("tb1").innerHTML=X; 
                           check = 1;
@@ -49,13 +63,14 @@
                          document.getElementById("tb1").innerHTML=O;
                          check=0;
                      }
+                     
                   };
                   
                   function f2(){
                      var req = new XMLHttpRequest();
                      req.open('GET', 'http://localhost:8080/Tic-tac-toe/updateBoard?name=01' , true);
                      req.send(null);
-                      
+
                      if(check===0){
                           document.getElementById("tb2").innerHTML=X; 
                           check = 1;

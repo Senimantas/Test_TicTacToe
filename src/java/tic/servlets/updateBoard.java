@@ -55,17 +55,27 @@ public class updateBoard extends HttpServlet {
              GameBoard gb = GameBoard.getInstance();
              if(GameBoard.getBoard()[locX][locY]==null){
                     gb.setXorO(locX, locY);
-                    if(gb.checkWinner()){
-                        
-                    }
                     gb.print();
+                    if(gb.checkWinner()==true){
+                        if(GameBoard.getPlayer()==1){
+                            System.out.println("Winner!!! Player 2 won the game" );
+                            request.setAttribute("winner","Winner!!! Player 2 won the game");
+                            request.getRequestDispatcher("/index.jsp").forward(request,response);
+                        }
+                        else if(GameBoard.getPlayer()==2){
+                            System.out.println("Winner!!! Player 1 won the game" );
+                            request.setAttribute("winner","Winner!!! Player 1 won the game");
+                            request.getRequestDispatcher("/index.jsp").forward(request,response);
+                        }
+                       
+                    }
                 }
         }
         
-        String[][] resp = GameBoard.getBoard();
-        for (String[] a : resp) 
-        list.addAll(Arrays.asList(a));
-        System.out.println(list.toString());
+//        String[][] resp = GameBoard.getBoard();
+//        for (String[] a : resp) 
+//        list.addAll(Arrays.asList(a));
+//        System.out.println(list.toString());
         
 //        request.setAttribute("board",list);
 //        request.getRequestDispatcher("/index.jsp").forward(request,response);
