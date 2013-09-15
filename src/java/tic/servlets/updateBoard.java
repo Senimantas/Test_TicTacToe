@@ -43,6 +43,7 @@ public class updateBoard extends HttpServlet {
         int locY = Integer.parseInt(loc.substring(1, 2));
               
         ArrayList list = new ArrayList();
+        PrintWriter out = response.getWriter();
         
         if(GameBoard.getBoard()==null){
             GameBoard gb = GameBoard.getInstance();
@@ -58,14 +59,16 @@ public class updateBoard extends HttpServlet {
                     gb.print();
                     if(gb.checkWinner()==true){
                         if(GameBoard.getPlayer()==1){
-                            System.out.println("Winner!!! Player 2 won the game" );
-                            request.setAttribute("winner","Winner!!! Player 2 won the game");
-                            request.getRequestDispatcher("/index.jsp").forward(request,response);
+                            String winner = "Winner!!! Player 2 won the game!";
+                            System.out.println(winner);
+                            request.setAttribute("winner", winner);
+                            request.getRequestDispatcher("/Tic-tac-toe/index.jsp").forward(request, response);
                         }
                         else if(GameBoard.getPlayer()==2){
-                            System.out.println("Winner!!! Player 1 won the game" );
-                            request.setAttribute("winner","Winner!!! Player 1 won the game");
-                            request.getRequestDispatcher("/index.jsp").forward(request,response);
+                            String winner = "Winner!!! Player 1 won the game!";
+                            System.out.println(winner);
+                            request.setAttribute("winner", winner);
+                            request.getRequestDispatcher("/Tic-tac-toe/index.jsp").forward(request, response);
                         }
                        
                     }

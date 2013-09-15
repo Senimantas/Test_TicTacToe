@@ -29,6 +29,13 @@ public class GameBoard {
     public static int getPlayer() {
         return player;
     }
+
+    /**
+     * @param aBoard the board to set
+     */
+    public static void setBoard(String[][] aBoard) {
+        board = aBoard;
+    }
     
     private GameBoard(){
 
@@ -36,13 +43,13 @@ public class GameBoard {
     
     public String setXorO(int locX, int locY){
         if(getPlayer()==1){
-            board[locX][locY] = X;
+            getBoard()[locX][locY] = X;
             player = 2;
             return X;
         }
             
         else {
-            board[locX][locY] = O;
+            getBoard()[locX][locY] = O;
             player = 1;
             return O;
         }
@@ -59,42 +66,42 @@ public class GameBoard {
     
     public boolean checkWinner(){
         //check rows
-        if((board[0][0]!=null) && (board[0][1]!=null) && (board[0][2]!=null)){
-            if((board[0][0].equals(X)) && (board[0][1].equals(X)) && (board[0][2].equals(X))) {board=null; return true;}
-            else if((board[0][0].equals(O)) && (board[0][1].equals(O)) && (board[0][2].equals(O))) {board=null; return true;}
+        if((getBoard()[0][0]!=null) && (getBoard()[0][1]!=null) && (getBoard()[0][2]!=null)){
+            if((getBoard()[0][0].equals(X)) && (getBoard()[0][1].equals(X)) && (getBoard()[0][2].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][0].equals(O)) && (getBoard()[0][1].equals(O)) && (getBoard()[0][2].equals(O))) {setBoard(null); return true;}
         }
-        if((board[1][0]!=null) && (board[1][1]!=null) && (board[1][2]!=null)){
-            if((board[1][0].equals(X)) && (board[1][1].equals(X)) && (board[1][2].equals(X))) {board=null; return true;}
-            else if((board[1][0].equals(O)) && (board[1][1].equals(O)) && (board[1][2].equals(O))) {board=null; return true;}
+        if((getBoard()[1][0]!=null) && (getBoard()[1][1]!=null) && (getBoard()[1][2]!=null)){
+            if((getBoard()[1][0].equals(X)) && (getBoard()[1][1].equals(X)) && (getBoard()[1][2].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[1][0].equals(O)) && (getBoard()[1][1].equals(O)) && (getBoard()[1][2].equals(O))) {setBoard(null); return true;}
         }
-        if((board[2][0]!=null) && (board[2][1]!=null) && (board[2][2]!=null)){
-            if((board[2][0].equals(X)) && (board[2][1].equals(X)) && (board[2][2].equals(X))) {board=null; return true;}
-            else if((board[2][0].equals(O)) && (board[2][1].equals(O)) && (board[2][2].equals(O))) {board=null; return true;}
+        if((getBoard()[2][0]!=null) && (getBoard()[2][1]!=null) && (getBoard()[2][2]!=null)){
+            if((getBoard()[2][0].equals(X)) && (getBoard()[2][1].equals(X)) && (getBoard()[2][2].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[2][0].equals(O)) && (getBoard()[2][1].equals(O)) && (getBoard()[2][2].equals(O))) {setBoard(null); return true;}
         }
         
         //check columns
-        if((board[0][0]!=null) && (board[1][0]!=null) && (board[2][0]!=null)){
-            if((board[0][0].equals(X)) && (board[1][0].equals(X)) && (board[2][0].equals(X))) {board=null; return true;}
-            else if((board[0][0].equals(O)) && (board[1][0].equals(O)) && (board[2][0].equals(O))) {board=null; return true;}
+        if((getBoard()[0][0]!=null) && (getBoard()[1][0]!=null) && (getBoard()[2][0]!=null)){
+            if((getBoard()[0][0].equals(X)) && (getBoard()[1][0].equals(X)) && (getBoard()[2][0].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][0].equals(O)) && (getBoard()[1][0].equals(O)) && (getBoard()[2][0].equals(O))) {setBoard(null); return true;}
         }
-        if((board[0][1]!=null) && (board[1][1]!=null) && (board[2][1]!=null)){
-            if((board[0][1].equals(X)) && (board[1][1].equals(X)) && (board[2][1].equals(X))) {board=null; return true;}
-            else if((board[0][1].equals(O)) && (board[1][1].equals(O)) && (board[2][1].equals(O))) {board=null; return true;}
+        if((getBoard()[0][1]!=null) && (getBoard()[1][1]!=null) && (getBoard()[2][1]!=null)){
+            if((getBoard()[0][1].equals(X)) && (getBoard()[1][1].equals(X)) && (getBoard()[2][1].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][1].equals(O)) && (getBoard()[1][1].equals(O)) && (getBoard()[2][1].equals(O))) {setBoard(null); return true;}
         }
-        if((board[0][2]!=null) && (board[1][2]!=null) && (board[2][2]!=null)){
-            if((board[0][2].equals(X)) && (board[1][2].equals(X)) && (board[2][2].equals(X))) {board=null; return true;}
-            else if((board[0][2].equals(O)) && (board[1][2].equals(O)) && (board[2][2].equals(O))) {board=null; return true;}
+        if((getBoard()[0][2]!=null) && (getBoard()[1][2]!=null) && (getBoard()[2][2]!=null)){
+            if((getBoard()[0][2].equals(X)) && (getBoard()[1][2].equals(X)) && (getBoard()[2][2].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][2].equals(O)) && (getBoard()[1][2].equals(O)) && (getBoard()[2][2].equals(O))) {setBoard(null); return true;}
         }
             
         //check diagonals
-        if((board[0][0]!=null) && (board[1][1]!=null) && (board[2][2]!=null)){
-            if((board[0][0].equals(X)) && (board[1][1].equals(X)) && (board[2][2].equals(X))) {board=null; return true;}
-            else if((board[0][0].equals(O)) && (board[1][1].equals(O)) && (board[2][2].equals(O))) {board=null; return true;}
+        if((getBoard()[0][0]!=null) && (getBoard()[1][1]!=null) && (getBoard()[2][2]!=null)){
+            if((getBoard()[0][0].equals(X)) && (getBoard()[1][1].equals(X)) && (getBoard()[2][2].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][0].equals(O)) && (getBoard()[1][1].equals(O)) && (getBoard()[2][2].equals(O))) {setBoard(null); return true;}
         }
             
-        if((board[0][2]!=null) && (board[1][1]!=null) && (board[2][0]!=null)){
-            if((board[0][2].equals(X)) && (board[1][1].equals(X)) && (board[2][0].equals(X))) {board=null; return true;}
-            else if((board[0][2].equals(O)) && (board[1][1].equals(O)) && (board[2][0].equals(O))) {board=null; return true;}
+        if((getBoard()[0][2]!=null) && (getBoard()[1][1]!=null) && (getBoard()[2][0]!=null)){
+            if((getBoard()[0][2].equals(X)) && (getBoard()[1][1].equals(X)) && (getBoard()[2][0].equals(X))) {setBoard(null); return true;}
+            else if((getBoard()[0][2].equals(O)) && (getBoard()[1][1].equals(O)) && (getBoard()[2][0].equals(O))) {setBoard(null); return true;}
         }
         
         return false;
@@ -102,7 +109,7 @@ public class GameBoard {
     
     public static GameBoard getInstance() {
         if(getBoard() == null){
-            board = new String[3][3];
+            setBoard(new String[3][3]);
             player = 1;
         
             if (gb == null) {

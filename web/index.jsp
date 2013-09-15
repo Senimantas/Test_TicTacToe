@@ -4,6 +4,7 @@
     Author     : pomobc
 --%>
 
+<%@page import="model.GameBoard"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="javax.servlet.http.HttpServletRequest;"%>
@@ -11,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <!DOCTYPE html>
 <html>
+    <%GameBoard.setBoard(null);%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
@@ -35,7 +37,9 @@
             </div>
                 <br></br>
                 <br>
-                    <a href type="text" id="winner"></a>
+                    <!-- I don't know how to make it to display the winner player -->
+                    <p><%= request.getAttribute("winner") %></p>
+                    <p>${winner}</p>
                 </br>
                 <br></br>
                 <br></br>
@@ -50,12 +54,8 @@
                      var req = new XMLHttpRequest();
                      req.open('GET', 'http://localhost:8080/Tic-tac-toe/updateBoard?name=00' , true);
                      req.send(null);
-                     <% String winner = (String) request.getAttribute("winner");
-                        if(winner!=null){%>
-                            document.getElementById("winner").innerHTML="winner"; 
-                        <%}
-                     %>
-                     if(check===0){
+ 
+                    if(check===0){
                           document.getElementById("tb1").innerHTML=X; 
                           check = 1;
                      }
