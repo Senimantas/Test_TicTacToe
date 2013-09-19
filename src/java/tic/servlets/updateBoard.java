@@ -4,11 +4,19 @@
  */
 package tic.servlets;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,10 +49,17 @@ public class updateBoard extends HttpServlet {
         String loc = request.getParameter("name");
         int locX = Integer.parseInt(loc.substring(0, 1));
         int locY = Integer.parseInt(loc.substring(1, 2));
-              
-        ArrayList list = new ArrayList();
-        PrintWriter out = response.getWriter();
         
+        PrintWriter out = null;
+        
+         try{
+            String path = getServletContext().getRealPath("/winner.txt");
+            out = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
+           
+            } catch (IOException ex) {
+
+         }
+                     
         if(GameBoard.getBoard()==null){
             GameBoard gb = GameBoard.getInstance();
             gb.setXorO(locX, locY);  
@@ -52,7 +67,6 @@ public class updateBoard extends HttpServlet {
             }
         
         else{
-             String array[][] = GameBoard.getBoard();
              GameBoard gb = GameBoard.getInstance();
              if(GameBoard.getBoard()[locX][locY]==null){
                     gb.setXorO(locX, locY);
@@ -61,28 +75,17 @@ public class updateBoard extends HttpServlet {
                         if(GameBoard.getPlayer()==1){
                             String winner = "Winner!!! Player 2 won the game!";
                             System.out.println(winner);
-                            request.setAttribute("winner", winner);
-                            request.getRequestDispatcher("/Tic-tac-toe/index.jsp").forward(request, response);
+                            out.print(winner); out.close();
                         }
                         else if(GameBoard.getPlayer()==2){
                             String winner = "Winner!!! Player 1 won the game!";
                             System.out.println(winner);
-                            request.setAttribute("winner", winner);
-                            request.getRequestDispatcher("/Tic-tac-toe/index.jsp").forward(request, response);
+                            out.print(winner); out.close();
                         }
-                       
                     }
                 }
         }
-        
-//        String[][] resp = GameBoard.getBoard();
-//        for (String[] a : resp) 
-//        list.addAll(Arrays.asList(a));
-//        System.out.println(list.toString());
-        
-//        request.setAttribute("board",list);
-//        request.getRequestDispatcher("/index.jsp").forward(request,response);
-
+               
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

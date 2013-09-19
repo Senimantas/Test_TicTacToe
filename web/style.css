@@ -52,7 +52,7 @@ header {
     width: 70px;
     color: rgb(255, 255, 255);
     background-color: #E1BAAC;
-    font-size: 5.2em;
+    font-size: 5em;
     font-weight: 700;
     font-family: Tahoma;
     text-decoration: none;
@@ -97,4 +97,22 @@ header {
     background-color: #e5e6f0;
     position: relative;
     border-radius: 0px 0px 10px 10px;
+}
+
+#winner {
+    height: 50px;
+    position: relative;
+    font-size: 2.2em;
+    font-weight: 200;
+    color: #773938;
+    line-height: 50px;
+}
+
+#title {
+    height: 60px;
+    position: relative;
+    font-size: 3.2em;
+    font-weight: 300;
+    color: #773938;
+    line-height: 60px;
 }
